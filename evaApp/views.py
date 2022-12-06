@@ -19,6 +19,7 @@ def listadoTrabajadores(request):
 
 def agregarTrabajador(request):
     data = {'form' : FormTrabajador}    
+    
     if request.method == 'POST':
         form = FormTrabajador(data=request.POST) #rellena formulario
         if form.is_valid():

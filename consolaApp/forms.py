@@ -9,7 +9,7 @@ class FormConsola(forms.ModelForm):
             model = Consola
             fields = '__all__' # incluye todo lo que esta en el modelo
 
-    nombreConsola = forms.CharField()
+    nombreConsola = forms.CharField(label="Nombre de la consola")
     modelo = forms.CharField()
     color = forms.CharField()
     precio = forms.IntegerField()

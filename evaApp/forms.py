@@ -4,51 +4,35 @@ from consolaApp.models import Consola
 from django.contrib.admin import widgets
 from django.core import validators 
 from django.forms import ValidationError
+from django.contrib.admin.widgets import AdminDateWidget
+from django.forms.fields import DateField
 
 
 class FormTrabajador(forms.ModelForm):
         
         consolas = Consola.objects.values('nombreConsola')
         test = {consolas}
-        # print(f'test {test}')
-        tupla = tuple()
-        
-
-        print(tupla)
+        games = []
         i = 0
-        k= 0
         for consola1 in test:
             for campo in consola1:
-                print(consola1[i]['nombreConsola'])
-                print(consola1[0])
-                print (f'tuplaaaaaaaaa {tupla}')
-                
-                
+                hola = consola1[i]['nombreConsola']
+                print(hola)
+                listado = (hola,hola)
+                print(f'listado- {listado}')
+                games.append(listado)                
+                print("separar")
+                print(f'listadooozin - {games}')
                 i+=1
-                
-
-        # for i in consolas:
-            # tpl = (i,consolas[i])
-            # tupla.append(tpl)
-            # print(tupla)
-        # hola = list(test.values())
-        # print(f'holaaaaa: {hola}')
+        print("---------------------------------")    
         
-        # test = {
-        #     "hola": "1",
-        #     "bien": "2"
-        # }
-        # for claves in test:
-        #     print(f'clavessss {test[claves]}')
-
-        print("separador")
-        # print(f'hola: {test}')
+        
         rut             = forms.CharField(min_length=10, max_length=10)
         nombre          = forms.CharField()
         apellido        = forms.CharField()
         telefono        = forms.IntegerField()
         correo          = forms.CharField()
-        compraConsola   = forms.CharField(widget=forms.Select(choices="consola1"))
+        compraConsola   = forms.CharField(widget=forms.Select(choices=games), label="Elegir consola")
 
 
         rut.widget.attrs['class'] = 'form-control'
@@ -56,9 +40,7 @@ class FormTrabajador(forms.ModelForm):
         apellido.widget.attrs['class'] = 'form-control'
         telefono.widget.attrs['class'] = 'form-control'
         correo.widget.attrs['class'] = 'form-control'
-        compraConsola.widget.attrs['class'] = 'form-control'
-
-
+        compraConsola.widget.attrs['class'] = 'form-select'
         rut.widget.attrs['placeholder'] = '12.235.678-k'
         correo.widget.attrs['placeholder'] = 'Example@gmail.com'
         telefono.widget.attrs['placeholder'] = 'X XXXX XXXX'
@@ -86,7 +68,8 @@ class FormTrabajador(forms.ModelForm):
 
         class Meta:
             model = Trabajador
-            fields = '__all__'  #['rut','nombre','apellido','apellido','telefono','correo',]# incluye todo lo que esta en el modelo
+            fields = '__all__'
             widgets = {
                 "fechaNacimiento" : forms.SelectDateWidget(years=range(1940,2022)),
             }
+            
