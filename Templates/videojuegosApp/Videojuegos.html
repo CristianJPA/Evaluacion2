@@ -29,29 +29,31 @@
         {% endif %}
     </div>
 
-    {% if consolas %}
+    {% if videojuegos %}
     <table class="table table-striped table-inverse table-responsive">
         <thead class="thead-inverse">
             <tr>
-                <th>Nombre</th>
-                <th>Modelo</th>
-                <th>Color</th>
-                <th>Precio</th>
-                <th>Memoria</th>                
-                <th>Edición</th>        
+                <th>Nombre Videojuego</th>
+                <th>Duración</th>
+                <th>Edición</th>
+                <th>Género</th>
+                <th>Precio</th>                
+                <th>Cantidad de jugadores</th>        
+                <th>Compatibilidad con</th>        
             </tr>
         </thead>
         <tbody>
-            {% for consola in consolas %}
+            {% for videojuego in videojuegos %}
             <tr>
-                <td>{{ consola.nombreConsola }}</td>
-                <td>{{ consola.modelo }}</td>
-                <td>{{ consola.color }}</td>
-                <td>{{ consola.precio }}</td>
-                <td>{{ consola.memoria }}</td>
-                <td>{{ consola.edicion }}</td>
-                <td><a href="../actualizarConsola/{{ consola.id }}"   class="btn-add "><i class="bi bi-pencil"></i></a></td>
-                <td><a href="../eliminarConsola/{{ consola.id }}"   class="btn-grad"><i class="bi bi-trash"></i></a></td>
+                <td>{{ videojuego.nombreVideojuego }}</td>
+                <td>{{ videojuego.duracion }}</td>
+                <td>{{ videojuego.edicion }}</td>
+                <td>{{ videojuego.genero }}</td>
+                <td>{{ videojuego.precio }}</td>
+                <td>{{ videojuego.cantidadJugadores }}</td>
+                <td>{{ videojuego.consolaCompatible }}</td>
+                <td><a href="../actualizarVideojuegos/{{ videojuego.id }}"   class="btn-add "><i class="bi bi-pencil"></i></a></td>
+                <td><a href="../eliminarVideojuegos/{{ videojuego.id }}"   class="btn-grad"><i class="bi bi-trash"></i></a></td>
             </tr>
             {% endfor %}
         </tbody>
@@ -65,7 +67,7 @@
 
     {% endif %}
 
-    <a href="../agregarConsola/" class="btn-blue">AGREGAR CONSOLA<i class="bi bi-controller"></i></a>
+    <a href="../agregarVideojuegos/" class="btn-blue">AGREGAR VIDEOJUEGO<i class="bi bi-controller"></i></a>
     <a href="../../" class="btn-grad"> <i class="bi bi-arrow-90deg-left me-2"></i>VOLVER</a>
 </body>
 
