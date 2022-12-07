@@ -1,9 +1,9 @@
 from django import forms
 from videojuegoApp.models import Videojuego
 from consolaApp.models import Consola
-from django.contrib.admin import widgets
-from django.core import validators 
+from django.shortcuts import render, redirect, get_object_or_404
 from django.forms import ValidationError
+
 
 class FormVideojuego(forms.ModelForm):
 
@@ -19,8 +19,8 @@ class FormVideojuego(forms.ModelForm):
             print(f'listado- {listado}')
             games.append(listado)                
             print("separar")
-            print(f'listadooozin - {games}')
-            i+=1
+            print(f'listadooo - {games}')
+            i+=1     
     print("---------------------------------")
 
     nombreVideojuego = forms.CharField(label="Nombre VideoJuego")

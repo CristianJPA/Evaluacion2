@@ -16,13 +16,14 @@ class FormTrabajador(forms.ModelForm):
         i = 0
         for consola1 in test:
             for campo in consola1:
+                
                 hola = consola1[i]['nombreConsola']
                 print(hola)
                 listado = (hola,hola)
                 print(f'listado- {listado}')
                 games.append(listado)                
                 print("separar")
-                print(f'listadooozin - {games}')
+                print(f'listadooo - {games}')
                 i+=1
         print("---------------------------------")    
         

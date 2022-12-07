@@ -12,14 +12,13 @@ def index(request):
     return render (request, 'evaApp/index.html')
 
 def listadoTrabajadores(request):
-    # consolas = Consola.objects.values('memoria')
+    
     trabajadores = Trabajador.objects.all()
     data = {'trabajadores': trabajadores}
     return render (request, 'evaApp/Trabajadores.html',data)
 
 def agregarTrabajador(request):
     data = {'form' : FormTrabajador}    
-    
     if request.method == 'POST':
         form = FormTrabajador(data=request.POST) #rellena formulario
         if form.is_valid():
