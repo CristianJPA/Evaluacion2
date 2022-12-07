@@ -48,9 +48,6 @@ class FormTrabajador(forms.ModelForm):
 
         def clean_rut(self):
             rut = self.cleaned_data.get('rut')
-            existe = Trabajador.objects.filter(rut__iexact=rut).exists()
-            if existe:
-                raise ValidationError("El rut ya existe")
             if rut.find("-") == -1 :
                 raise  forms.ValidationError('El rut debe contener un "-". Ej: 12.235.678-k ')
             if len(rut) != 10:
@@ -64,7 +61,7 @@ class FormTrabajador(forms.ModelForm):
                 print("El correo debe contener un  @")
                 raise forms.ValidationError("El correo debe contener un  @")
             if correo.find(".com") == -1 :
-                raise forms.ValidationError("El correo debe tener una extension '.com'")
+                raise forms.ValidationError("El correo debe tener un dominio '.com'")
             return correo
 
         class Meta:

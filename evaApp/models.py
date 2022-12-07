@@ -1,4 +1,5 @@
 from django.db import models
+from consolaApp.models import Consola
 
 # Create your models here.
 
