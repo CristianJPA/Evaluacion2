@@ -10,4 +10,4 @@ class Trabajador(models.Model):
     telefono        = models.IntegerField()
     correo          = models.CharField(max_length=35)
     fechaNacimiento = models.DateField()
-    compraConsola   = models.CharField(max_length=15)
+    nombreConsola   = models.ForeignKey(Consola, null=True, blank=True, on_delete=models.CASCADE)

@@ -8,3 +8,6 @@ class Consola(models.Model):
     precio = models.IntegerField()
     memoria = models.CharField(max_length=5)
     edicion = models.CharField(max_length=15)
+
+    def __str__(self):
+        return self.nombreConsola
