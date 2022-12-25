@@ -11,3 +11,4 @@ class Consola(models.Model):
 
     def __str__(self):
         return self.nombreConsola
+

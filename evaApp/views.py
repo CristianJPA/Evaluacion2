@@ -1,9 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from evaApp.forms import FormTrabajador
 from evaApp.models import Trabajador
-from consolaApp.models import Consola
-from consolaApp.forms import FormConsola
-from . import forms
 from django.contrib import messages
 
 
@@ -12,7 +9,6 @@ def index(request):
     return render (request, 'evaApp/index.html')
 
 def listadoTrabajadores(request):
-    
     trabajadores = Trabajador.objects.all()
     data = {'trabajadores': trabajadores}
     return render (request, 'evaApp/Trabajadores.html',data)
